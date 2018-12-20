@@ -15,7 +15,7 @@
     update any existing page or create new pages.
   </p> -->
   <ion-list>
-      <button ion-item *ngFor="let result of results" (click)="itemSelected(result)">
+      <button ion-item *ngFor="let result of results" (click)="presentPopover($event, result)">
         {{ result.text }}
       </button>  
   </ion-list>
