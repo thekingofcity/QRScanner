@@ -20,3 +20,7 @@
 [第三方库的readme，算是很有帮助，但是跑通也费了不少功夫](https://ionicframework.com/docs/native/camera-preview/)
 
 [环境配置教程](https://www.jianshu.com/p/f301567378c5)
+
+[页面跳转与参数传递](https://blog.csdn.net/gent__chen/article/details/78690877)
+
+[异步加载数据后刷新页面](https://blog.csdn.net/u010564430/article/details/55214010)

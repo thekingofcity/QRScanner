@@ -1,69 +1,59 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
-// import { Diagnostic } from '@ionic-native/diagnostic';
-import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions } from '@ionic-native/camera-preview';
+import { BrowserQRCodeReader, VideoInputDevice } from '@zxing/library';
 
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-contact',
   templateUrl: 'contact.html'
 })
 export class ContactPage {
-
-  cameraPreviewOpts: CameraPreviewOptions
-  pictureOpts: CameraPreviewPictureOptions
-
-  //constructor(public navCtrl: NavController, private cameraPreview: CameraPreview, private diagnostic: Diagnostic) {
-  constructor(public navCtrl: NavController, private cameraPreview: CameraPreview) {
-    // camera options (Size and location). In the following example, the preview uses the rear camera and display the preview in the back of the webview
-    this.cameraPreviewOpts = {
-      x: 0,
-      y: 0,
-      width: window.screen.width,
-      height: window.screen.height,
-      camera: 'rear',
-      tapPhoto: true,
-      previewDrag: true,
-      toBack: true,
-      alpha: 1
-    };
-    // picture options
-    this.pictureOpts = {
-      width: 1280,
-      height: 1280,
-      quality: 85
-    }
-
-
-    // let successCallback = (isAvailable) => { console.log('Is available? ' + isAvailable); };
-    // let errorCallback = (e) => console.error(e);
-    // this.diagnostic.isCameraAvailable().then(successCallback).catch(errorCallback);
-    this.initializePreview();
+  // results:any[]
+  results: any[];
+  codeReader: BrowserQRCodeReader
+  constructor(public navCtrl: NavController, private storage: Storage) {
   }
 
-  initializePreview() {
-    // start camera
-    this.cameraPreview.startCamera(this.cameraPreviewOpts).then(
-      (res) => {
-        console.log(res)
-      },
-      (err) => {
-        console.log(err)
-      });
+  ionViewWillEnter() {
+    this.storage.get('results').then((val) => {
+      if(val){
+        this.results = val
+      }else{
+        this.results = new Array<any>();
+      }
+    })
 
+    this.codeReader = new BrowserQRCodeReader();
+
+    this.codeReader.getVideoInputDevices()
+      .then(videoInputDevices => {
+        videoInputDevices.forEach(
+          device => console.log(`${device.label}, ${device.deviceId}`)
+        );
+        const firstDeviceId = videoInputDevices[0].deviceId;
+
+        this.codeReader.decodeFromInputVideoDevice(firstDeviceId, 'video')
+          .then(result => {
+            this.codeReader.reset()
+            console.log(result)
+
+            this.results.push(result)
+            this.storage.set('results', this.results)
+
+            this.navCtrl.push(HomePage, {
+              // test : "aaa"
+            });
+          })
+          .catch(err => console.error(err));
+
+      })
+      .catch(err => console.error(err));
   }
 
-  // take a picture
-  takepicture() {
-    console.log("\nTaking picture\n")
-    this.cameraPreview.takePicture(this.pictureOpts).then((imageData) => {
-      // this.picture = 'data:image/jpeg;base64,' + imageData;
-      console.log('data:image/jpeg;base64,' + imageData)
-    }, (err) => {
-      console.log(err);
-      // this.picture = 'assets/img/test.jpg';
-    });
+  ionViewWillLeave(){
+    this.codeReader.reset()
   }
-
 }
