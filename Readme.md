@@ -25,11 +25,13 @@
     }
 ```
 
-  at the end of **build.gradle (Module: app)** to resolve multiple version prompt
+  at the end of **build.gradle (Module: app)** in Android Studio to resolve multiple version prompt
 
-  6. Add ```mCamera.startPreview();``` after line:554 at ```..\platforms\android\app\src\main\java\com\cordovaplugincamerapreview\CameraActivity.java```
+  6. Add ```mCamera.startPreview();``` after line:554 at ```..\platforms\android\app\src\main\java\com\cordovaplugincamerapreview\CameraActivity.java``` to resolve native camera plugin bug
 
-  7. run
+  7. change ```Result.text``` and ```Result.timestamp``` to ```public``` at  ```..\node_modules\@zxing\library\esm5\core\Result.d.ts```
+
+  8. run
 
 ## Remark/备注
 
