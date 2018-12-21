@@ -6,11 +6,13 @@
 
   2. install through [official installation guide](https://ionicframework.com/docs/intro/installation/)
 
-  3. run ```ionic cordova prepare android``` in root directory
+  3. change ```Result.text``` and ```Result.timestamp``` to ```public``` at  ```..\node_modules\@zxing\library\esm5\core\Result.d.ts```
 
-  4. open Android Studio and import project at ```..\platforms\android```
+  4. run ```ionic cordova prepare android``` in root directory
 
-  5. add
+  5. open Android Studio and import project at ```..\platforms\android```
+
+  6. add
 
 ```
     configurations.all {
@@ -27,9 +29,7 @@
 
   at the end of **build.gradle (Module: app)** in Android Studio to resolve multiple version prompt
 
-  6. Add ```mCamera.startPreview();``` after line:554 at ```..\platforms\android\app\src\main\java\com\cordovaplugincamerapreview\CameraActivity.java``` to resolve native camera plugin bug
-
-  7. change ```Result.text``` and ```Result.timestamp``` to ```public``` at  ```..\node_modules\@zxing\library\esm5\core\Result.d.ts```
+  7. Add ```mCamera.startPreview();``` after line:554 at ```..\platforms\android\app\src\main\java\com\cordovaplugincamerapreview\CameraActivity.java``` to resolve native camera plugin bug
 
   8. run
 
