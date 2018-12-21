@@ -24,3 +24,13 @@
 [页面跳转与参数传递](https://blog.csdn.net/gent__chen/article/details/78690877)
 
 [异步加载数据后刷新页面](https://blog.csdn.net/u010564430/article/details/55214010)
+
+* 弹出页面 直接根据官方教程根本没法复线，点开源代码才知道加了好多别的，以及app.moudle.ts也有不少
+
+    [官方例程](https://ionicframework.com/docs/components/#popovers)
+
+    [No component factory found for PopoverPage](https://forum.ionicframework.com/t/ionviewpreload-error-no-component-factory-found/73015)
+
+    [Component is not part of any NgModule or the module has not been imported into your module](https://stackoverflow.com/questions/44827999/component-is-not-part-of-any-ngmodule-or-the-module-has-not-been-imported-into-y)
+
+[默认cordova插件inappbrowser不显示，改成this.iab.create(url, "_system");](https://www.techiediaries.com/inappbrowser-ionic-v3/)

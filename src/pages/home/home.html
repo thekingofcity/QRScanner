@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>History</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,8 +15,15 @@
     update any existing page or create new pages.
   </p> -->
   <ion-list>
-      <button ion-item *ngFor="let result of results" (click)="presentPopover($event, result)">
-        {{ result.text }}
-      </button>  
+    <button ion-item *ngFor="let result of results" (click)="presentPopover($event, result)">
+      {{ result.text }}
+    </button>
   </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="clearHistory()">
+      <ion-icon name="trash"></ion-icon>
+    </button>
+  </ion-fab>
+  <p *ngIf="results">Nothing in here!</p>
+  <p *ngIf="results">Try scan something!</p>
 </ion-content>

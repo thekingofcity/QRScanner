@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
-import { BrowserQRCodeReader, VideoInputDevice } from '@zxing/library';
+import { BrowserQRCodeReader, Result } from '@zxing/library';
 
 import { HomePage } from '../home/home';
 
@@ -11,18 +11,17 @@ import { HomePage } from '../home/home';
   templateUrl: 'contact.html'
 })
 export class ContactPage {
-  // results:any[]
-  results: any[];
+  results: Result[];
   codeReader: BrowserQRCodeReader
   constructor(public navCtrl: NavController, private storage: Storage) {
   }
 
   ionViewWillEnter() {
     this.storage.get('results').then((val) => {
-      if(val){
+      if (val) {
         this.results = val
-      }else{
-        this.results = new Array<any>();
+      } else {
+        this.results = new Array<Result>();
       }
     })
 
@@ -33,7 +32,7 @@ export class ContactPage {
         videoInputDevices.forEach(
           device => console.log(`${device.label}, ${device.deviceId}`)
         );
-        const firstDeviceId = videoInputDevices[0].deviceId;
+        const firstDeviceId = videoInputDevices[1].deviceId;
 
         this.codeReader.decodeFromInputVideoDevice(firstDeviceId, 'video')
           .then(result => {
@@ -53,7 +52,7 @@ export class ContactPage {
       .catch(err => console.error(err));
   }
 
-  ionViewWillLeave(){
+  ionViewWillLeave() {
     this.codeReader.reset()
   }
 }
