@@ -86,5 +86,6 @@
     <plugin name="cordova-plugin-camera-preview" spec="0.10.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="3.0.0" />
     <plugin name="cordova-clipboard" spec="1.2.1" />
+    <plugin name="cordova-plugin-x-toast" spec="2.7.2" />
     <engine name="android" spec="7.1.4" />
 </widget>

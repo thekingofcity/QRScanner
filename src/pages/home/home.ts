@@ -1,10 +1,11 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController, ToastController, AlertController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { PopoverController, ViewController, NavParams } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { Result } from '@zxing/library';
 import { Clipboard } from '@ionic-native/clipboard';
+import { Toast } from '@ionic-native/toast';
 
 @Component({
   selector: 'page-home',
@@ -76,7 +77,7 @@ export class PopoverPage {
   link: boolean
   constructor(public viewCtrl: ViewController, private navParams: NavParams,
     private iab: InAppBrowser, private clipboard: Clipboard,
-    public toastCtrl: ToastController) { }
+    private toast: Toast) { }
 
   close() {
     this.viewCtrl.dismiss();
@@ -102,12 +103,17 @@ export class PopoverPage {
 
   copy() {
     this.clipboard.copy(this.result.text);
-    const toast = this.toastCtrl.create({
-      message: 'Copied to clipboard',
-      duration: 3000
-    });
-    toast.present();
-    close();
+    // const toast = this.toastCtrl.create({
+    //   message: 'Copied to clipboard',
+    //   duration: 3000
+    // });
+    // toast.present();
+    this.toast.show(`Copied to clipboard`, '3000', 'bottom').subscribe(
+      toast => {
+        console.log(toast);
+      }
+    );
+    this.viewCtrl.dismiss();
   }
 
 }
