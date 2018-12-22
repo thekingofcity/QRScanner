@@ -1,16 +1,20 @@
 # Iconic + Cordova + AS
 
+QRScanner is a utlity tool to scan QR code. QRScanner is a Hybrid App bulit by Ionic + Cordova + Android Studio.
+
+QRScanner 是一款扫描二维码的安卓端实用工具，是使用Ionic+Cordova+Android Sutdio开发的混合应用(Hybrid APP)。
+
 ## How to compile it
 
   1. clone the git
 
   2. install through [official installation guide](https://ionicframework.com/docs/intro/installation/)
 
-  3. change ```Result.text``` and ```Result.timestamp``` to ```public``` at  ```..\node_modules\@zxing\library\esm5\core\Result.d.ts```
+  3. change ```Result.text``` and ```Result.timestamp``` to ```public``` at  ```node_modules\@zxing\library\esm5\core\Result.d.ts```
 
   4. run ```ionic cordova prepare android``` in root directory
 
-  5. open Android Studio and import project at ```..\platforms\android```
+  5. open Android Studio and import project at ```platforms\android```
 
   6. add
 
@@ -29,7 +33,7 @@
 
   at the end of **build.gradle (Module: app)** in Android Studio to resolve multiple version prompt
 
-  7. Add ```mCamera.startPreview();``` after line:554 at ```..\platforms\android\app\src\main\java\com\cordovaplugincamerapreview\CameraActivity.java``` to resolve native camera plugin bug
+  7. Add ```mCamera.startPreview();``` after line:554 at ```platforms\android\app\src\main\java\com\cordovaplugincamerapreview\CameraActivity.java``` to resolve native camera plugin bug
 
   8. run
 
