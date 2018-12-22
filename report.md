@@ -301,6 +301,20 @@ QRScanner 是一款扫描二维码的安卓端实用工具，是使用Ionic+Cord
 
       ![关于界面](https://wx1.sinaimg.cn/mw690/a0487556ly1fyfnkgw61kj20u01o0abd.jpg)
 
+## 最终成果
+
+* 用户可以扫描合法的二维码
+
+* 二维码结果及历史记录展示在第二个页面中
+
+* 用户可以对任意一个记录进行在浏览器中打开（对于链接）或者复制（其余情况）
+
+* 用户还可以清空所有历史纪录
+
+![首页](https://wx2.sinaimg.cn/mw690/a0487556ly1fyft2jsfiej20u01o0qv5.jpg)
+
+![历史](https://wx1.sinaimg.cn/mw690/a0487556ly1fyft2j5z4pj20u01o041c.jpg)
+
 ## 遇到的问题
 
 * [忘记在全局注入第三方库provider](https://stackoverflow.com/questions/46048904/no-provider-for-camera-injectionerror)
