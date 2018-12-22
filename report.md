@@ -7,12 +7,14 @@ QRScanner 是一款扫描二维码的安卓端实用工具，是使用Ionic+Cord
 ## 背景
 
 * 混合应用(Hybrid APP)
-  Hybrid App是介于Native App和Web App之间的一种应用开发方式
-  ![三种应用开发方式比较](http://images2015.cnblogs.com/blog/977542/201606/977542-20160615145356995-91223952.png)
+
+    Hybrid App是介于Native App和Web App之间的一种应用开发方式
+    ![三种应用开发方式比较](http://images2015.cnblogs.com/blog/977542/201606/977542-20160615145356995-91223952.png)
 
 * 为什么要选择混合应用
-  混合应用(Hybrid APP) 主要以JS+Native两者相互调用为主，从开发层面实现“一次开发，多处运行”的机制，成为真正适合跨平台的开发。Hybrid App兼具了Native App良好用户体验的优势，也兼具了Web App使用HTML5跨平台开发低成本的优势。
-  目前已经有众多Hybrid App开发成功应用，比如美团、爱奇艺、微信、手机淘宝等知名移动应用，都是采用Hybrid App开发模式。
+
+    混合应用(Hybrid APP) 主要以JS+Native两者相互调用为主，从开发层面实现“一次开发，多处运行”的机制，成为真正适合跨平台的开发。Hybrid App兼具了Native App良好用户体验的优势，也兼具了Web App使用HTML5跨平台开发低成本的优势。
+    目前已经有众多Hybrid App开发成功应用，比如美团、爱奇艺、微信、手机淘宝等知名移动应用，都是采用Hybrid App开发模式。
 
 * 如何开发混合应用
 
@@ -303,16 +305,16 @@ QRScanner 是一款扫描二维码的安卓端实用工具，是使用Ionic+Cord
 
 * [忘记在全局注入第三方库provider](https://stackoverflow.com/questions/46048904/no-provider-for-camera-injectionerror)
 
-  Ionic/AngualrJS需要在项目初始化阶段注入所有需要用到的库。
+    Ionic/AngualrJS需要在项目初始化阶段注入所有需要用到的库。
 
 * [Chrome远程调试](https://medium.com/@coderonfleek/debugging-an-ionic-android-app-using-chrome-dev-tools-6e139b79e8d2)
 
-  因为应用内部启动了浏览器，所以可以用桌面端的Chrome开发者工具远程调试，大大方便了调试出错的问题。
-  这次遇到的问题就是Ionic/AngularJS的回调函数定义域与初始不同，解决方法为=>即可，这样外层的this会在函数异步返回时赋值给内部this。
+    因为应用内部启动了浏览器，所以可以用桌面端的Chrome开发者工具远程调试，大大方便了调试出错的问题。
+    这次遇到的问题就是Ionic/AngularJS的回调函数定义域与初始不同，解决方法为=>即可，这样外层的this会在函数异步返回时赋值给内部this。
 
 * [第三方库定义的android sdk版本和项目不一致](https://forum.ionicframework.com/t/manifest-merger-failed-attribute-meta-data-android-support-version-value-value-26-1-0-from-com-android-support-support-v13-26-1-0-androidmanifest-xml-28-13-35/113022/2)
 
-  在gradle中定义使用的版本即可。官方论坛给出的方法实践后也也没用，因为是第三方库定义的，在/platforms/android/project.properties直接修改是没用的。
+    在gradle中定义使用的版本即可。官方论坛给出的方法实践后也也没用，因为是第三方库定义的，在/platforms/android/project.properties直接修改是没用的。
 
 * [参照的教程是ionic 2的，3已经换调用库的方式了](https://stackoverflow.com/questions/43583032/cannot-find-module-ionic-native)
 
@@ -324,7 +326,7 @@ QRScanner 是一款扫描二维码的安卓端实用工具，是使用Ionic+Cord
 
 * [异步加载数据后刷新页面](https://blog.csdn.net/u010564430/article/details/55214010)
 
-  通过IonView*生命周期事件解决，没有用此方法。
+    通过IonView*生命周期事件解决，没有用此方法。
 
 * [默认cordova插件inappbrowser不显示，改成this.iab.create(url, "_system");](https://www.techiediaries.com/inappbrowser-ionic-v3/)
 
