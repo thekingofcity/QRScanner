@@ -301,7 +301,7 @@ QRScanner 是一款扫描二维码的安卓端实用工具，是使用Ionic+Cord
   这次遇到的问题就是Ionic/AngularJS的回调函数定义域与初始不同，解决方法为=>即可，这样外层的this会在函数异步返回时赋值给内部this。
 
 * [第三方库定义的android sdk版本和项目不一致](https://forum.ionicframework.com/t/manifest-merger-failed-attribute-meta-data-android-support-version-value-value-26-1-0-from-com-android-support-support-v13-26-1-0-androidmanifest-xml-28-13-35/113022/2)
-  在gradle中定义使用的版本即可。官方论坛给出的方法实践后也也没用，因为是第三方库定义的，在/platforms/android/project.properties直接修改是没用的
+  在gradle中定义使用的版本即可。官方论坛给出的方法实践后也也没用，因为是第三方库定义的，在/platforms/android/project.properties直接修改是没用的。
 
 * [参照的教程是ionic 2的，3已经换调用库的方式了](https://stackoverflow.com/questions/43583032/cannot-find-module-ionic-native)
 

@@ -47,9 +47,15 @@ QRScanner 是一款扫描二维码的安卓端实用工具，是使用Ionic+Cord
 
 * [忘记在全局注入第三方库provider](https://stackoverflow.com/questions/46048904/no-provider-for-camera-injectionerror)
 
-* [要不是Chrome远程调试，我就在回调函数不在框架内这去年遇到的深坑中一蹶不起了，Chrome大法好](https://medium.com/@coderonfleek/debugging-an-ionic-android-app-using-chrome-dev-tools-6e139b79e8d2)
+* [忘记在全局注入第三方库provider](https://stackoverflow.com/questions/46048904/no-provider-for-camera-injectionerror)
+  Ionic/AngualrJS需要在项目初始化阶段注入所有需要用到的库。
 
-* [第三方库定义的android sdk版本和项目不一致，在gradle中定义使用的版本即可。要不是搜到ionic相关的帖子我早就搞定了233，官方论坛说的也没用，因为是第三方库定义的，在/platforms/android/project.properties修改没用](https://forum.ionicframework.com/t/manifest-merger-failed-attribute-meta-data-android-support-version-value-value-26-1-0-from-com-android-support-support-v13-26-1-0-androidmanifest-xml-28-13-35/113022/2)
+* [要不是Chrome远程调试，我就在回调函数不在框架内这去年遇到的坑中一蹶不起了，Chrome大法好](https://medium.com/@coderonfleek/debugging-an-ionic-android-app-using-chrome-dev-tools-6e139b79e8d2)
+  因为应用内部启动了浏览器，所以可以用桌面端的Chrome开发者工具远程调试，大大方便了调试出错的问题。
+  这次遇到的问题就是Ionic/AngularJS的回调函数定义域与初始不同，解决方法为=>即可，这样外层的this会在函数异步返回时赋值给内部this。
+
+* [第三方库定义的android sdk版本和项目不一致](https://forum.ionicframework.com/t/manifest-merger-failed-attribute-meta-data-android-support-version-value-value-26-1-0-from-com-android-support-support-v13-26-1-0-androidmanifest-xml-28-13-35/113022/2)
+  在gradle中定义使用的版本即可。官方论坛给出的方法实践后也也没用，因为是第三方库定义的，在/platforms/android/project.properties直接修改是没用的。要不是搜到ionic相关的帖子我早就搞定了233
 
 * [参照的教程是ionic 2的，3已经换调用库的方式了](https://stackoverflow.com/questions/43583032/cannot-find-module-ionic-native)
 
